@@ -77,7 +77,7 @@ if ($cmd{setup}) {
     if (exists $cc{$cli->{name}}) {
       jr('Client.SetLatency',{
         id => $cli->{id},
-        latency => $cmd{latency},
+        latency => 0 + $cmd{latency},
       });
     }
   }
