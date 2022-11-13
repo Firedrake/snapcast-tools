@@ -21,6 +21,8 @@ my @cc;
 foreach my $param (@ARGV) {
   if ($param =~ /^(setup|setup_bystream|off|on)$/) {
     $cmd{$param} = 1;
+  } elsif ($param =~ /^[0-9]+$/) {
+    $cmd{latency} = $param;
   } else {
     push @cc, $param;
   }
@@ -67,7 +69,16 @@ if ($cmd{setup}) {
         id => $cli->{id},
         muted => $mute,
       });
-      delete $cc{$cli->{name}};
+    }
+  }
+} elsif ($cmd{latency}) {
+  my %cc = map {$_ => 1} @cc;
+  foreach my $cli (values %{$status->{client}}) {
+    if (exists $cc{$cli->{name}}) {
+      jr('Client.SetLatency',{
+        id => $cli->{id},
+        latency => $cmd{latency},
+      });
     }
   }
 } elsif (@cc) {

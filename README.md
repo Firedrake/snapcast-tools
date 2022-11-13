@@ -38,13 +38,18 @@ Assign each known client to a group named for that client. (Note that
 this won't play well with the official Snapcast client for Android,
 which does not display group names, only their assigned streams.)
 
+- LATENCY CLIENT (CLIENT...)
+
+LATENCY is any all-digit parameter. Set the latency value for each
+CLIENT.
+
 - STREAM GROUP (GROUP...)
 
 Assign STREAM to each GROUP.
 
 - GROUP CLIENT (CLIENT...)
 
-Move CLIENT(s) into GROUP.
+Move CLIENT(s) into GROUP (which need not exist)
 
 - GROUP/CLIENT off/on
 
