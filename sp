@@ -126,6 +126,7 @@ if ($cmd{setup}) {
                ']: ',
                join(', ',map {
                  $status->{client}{$_}{name} .
+                   ($status->{client}{$_}{latency}==0?'':'<'.($status->{client}{$_}{latency}).'>') .
                    ($status->{client}{$_}{muted}?'*':'')
                  } @{$status->{group}{$gid}{clients}}),
                "\n",
@@ -155,6 +156,7 @@ sub getstatus {
                           id => $cl->{id},
                           group => $gr->{id},
                           muted => $cl->{config}{volume}{muted},
+                          latency => $cl->{config}{latency},
                         };
       push @{$gh->{clients}},$cl->{id};
     }

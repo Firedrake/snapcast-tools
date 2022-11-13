@@ -33,7 +33,8 @@ set with -p, defaulting to 1705.
 - (no parameters)
 
 shows you groups, their assigned streams, and clients in those groups,
-one group per line. A "*" indicates a muted group or client.
+one group per line. A <n> indicates non-zero client latency. A "*"
+indicates a muted group or client.
 
 - setup
 
