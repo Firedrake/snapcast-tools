@@ -21,6 +21,9 @@ control.
 
 ## In Practice
 
+This software is licenced under the GNU General Public License v3.0.
+See gpl-3.0.txt for details.
+
 "sp" because it's an allied trade to "mp" which is my command-line mpd
 controller (https://github.com/Firedrake/mpd-tools).
 
