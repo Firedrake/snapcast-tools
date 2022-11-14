@@ -71,7 +71,7 @@ if ($cmd{setup}) {
       });
     }
   }
-} elsif ($cmd{latency}) {
+} elsif (exists $cmd{latency}) {
   my %cc = map {$_ => 1} @cc;
   foreach my $cli (values %{$status->{client}}) {
     if (exists $cc{$cli->{name}}) {
