@@ -19,7 +19,7 @@ my $status = getstatus();
 my %cmd;
 my @cc;
 foreach my $param (@ARGV) {
-  if ($param =~ /^(setup|setup_bystream|off|on)$/) {
+  if ($param =~ /^(setup|setup_bystream|off|on|forget)$/) {
     $cmd{$param} = 1;
   } elsif ($param =~ /^[0-9]+$/) {
     $cmd{latency} = $param;
@@ -68,6 +68,15 @@ if ($cmd{setup}) {
       jr('Client.SetVolume',{
         id => $cli->{id},
         muted => $mute,
+      });
+    }
+  }
+} elsif (exists $cmd{forget}) {
+  my %cc = map {$_ => 1} @cc;
+  foreach my $cli (values %{$status->{client}}) {
+    if (exists $cc{$cli->{name}}) {
+      jr('Server.DeleteClient',{
+        id => $cli->{id},
       });
     }
   }

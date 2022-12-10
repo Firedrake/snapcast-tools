@@ -55,7 +55,12 @@ Assign STREAM to each GROUP.
 
 Move CLIENT(s) into GROUP (which need not exist)
 
-- GROUP/CLIENT off/on
+- GROUP/CLIENT (GROUP/CLIENT...) off/on
 
 Mute/unmute GROUP or CLIENT. (If the same name matches both GROUP and
 CLIENT, this will be done to GROUP.)
+
+- CLIENT (CLIENT...) forget
+
+Delete CLIENT from the server's list. When the client is restarted, it
+will re-register itself.
